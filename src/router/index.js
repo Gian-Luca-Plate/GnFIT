@@ -1,17 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView'
 import SingUpView from '@/views/SingUpView'
+import SingInView from "@/views/SingInView.vue";
 
 const routes = [
   {
     path: '/',
+    name: 'SingUp',
+    component: SingUpView
+  },
+  {
+    path: '/home',
     name: 'home',
     component: HomeView
   },{
-    path: '/singUp',
+    path: '/Login',
     name: 'singUp',
-    component: SingUpView
-  },
+    component: SingInView
+  }
 ]
 
 const router = createRouter({

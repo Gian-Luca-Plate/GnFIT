@@ -46,8 +46,8 @@ export default {
         }
 
         this.PUs = Number(this.PUs)  + Number(Todos[0].PushUp)
-        this.PUs = Number(this.SITs)  + Number(Todos[0].SitUps)
-        this.PUs = Number(this.CURs)  + Number(Todos[0].Curls)
+        this.SITs = Number(this.SITs)  + Number(Todos[0].SitUps)
+        this.CURs = Number(this.CURs)  + Number(Todos[0].Curls)
         
       } catch (error) {
         this.errorMessage =
@@ -75,7 +75,7 @@ export default {
 
         const { data, error: updateError } = await supabase
           .from("Todos")
-          .update({ PushUp: this.PUs }) // Neue Werte setzen
+          .update({ PushUp: this.PUs,SitUps: this.SITs,Curls: this.CURs }) // Neue Werte setzen
           .eq("user_id", userID); // Bedingung: Benutzer-ID
 
         if (updateError) throw updateError;
