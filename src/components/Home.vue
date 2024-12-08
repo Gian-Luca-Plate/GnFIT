@@ -12,7 +12,6 @@ export default {
       SQUAs: 0, //Squads
       day: "",
       analyses: [],
-      analyses_length_3: false,
     };
   },
   mounted() {
