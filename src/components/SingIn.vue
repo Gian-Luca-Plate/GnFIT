@@ -1,6 +1,5 @@
 <script>
 import { supabase } from "@/client/supabase";
-import { provide } from "vue";
 
 export default {
   data() {
@@ -29,8 +28,10 @@ export default {
           console.log("Benutzer-ID:", user.user.id);
           localStorage.setItem("userID", user.user.id);
         }
+        this.$router.push("/home");
       } catch (error) {
         this.errorMessage = error.message;
+        alert('Fehler beim Login', error)
         console.error("Fehler beim Login:", error);
       }
     },
@@ -54,15 +55,13 @@ export default {
         type="password"
         v-model="password"
         class="inputForms"
-        placeholder="ABc123@!"
+        placeholder="ABc123@!"  
       />
-      <router-link to="/home" style="text-decoration: none">
-        <button type="button" @click="loginAcc" class="createButton">
-          Login
-        </button>
-      </router-link>
+      <button type="button" @click="loginAcc" class="createButton">
+        Login
+      </button>
     </div>
-    <br>
+    <br />
     <router-link to="/">I already have an Account</router-link>
   </div>
 </template>

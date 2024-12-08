@@ -4,8 +4,8 @@
 <script>
 export default {
     created() {
-    if (localStorage.getItem('AoutoLogin') === 'yes') {
-    this.$router.push('/home')
+    if (localStorage.getItem('userID') === null) {
+    this.$router.push('/')
      }
     },
 }
